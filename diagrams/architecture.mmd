@@ -1,0 +1,34 @@
+flowchart TB
+    subgraph UserDevices["User Devices (BYOD)"]
+        Win["Windows 10/11 Pro<br/>Entra Joined"]
+        Mac["macOS<br/>Entra Registered"]
+    end
+
+    subgraph Edge["Secure Service Edge"]
+        GSA["Microsoft Global Secure Access<br/>(Microsoft 365 Profile only)"]
+    end
+
+    subgraph Identity["Identity, Compliance & Enforcement"]
+        Entra["Microsoft Entra ID"]
+        CA["Conditional Access<br/>• Compliant device<br/>• GSA verified network<br/>• MFA<br/>• Named locations"]
+        Intune["Microsoft Intune<br/>Device visibility & compliance"]
+    end
+
+    subgraph Resources["Protected Resources"]
+        M365["Microsoft 365<br/>Exchange • SharePoint • Teams • etc."]
+    end
+
+    subgraph Lifecycle["Lifecycle Controls"]
+        Offboard["Automated Offboarding<br/>1. Retire device in Intune<br/>2. Delete Entra identity"]
+        Purview["Microsoft Purview<br/>Sensitive data signals"]
+    end
+
+    Win --> GSA
+    Mac --> GSA
+    GSA --> CA
+    CA --> Entra
+    CA --> Intune
+    CA --> M365
+    Intune --> Offboard
+    Entra --> Offboard
+    M365 --> Purview
