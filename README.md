@@ -4,7 +4,7 @@
 
 This repository documents the design, implementation, and operationalisation of a Secure Service Edge solution using **Microsoft Global Secure Access (GSA)**, **Microsoft Entra ID**, **Intune**, and **Conditional Access** in a real Bring Your Own Device (BYOD) environment.
 
-The focus was not maximum control — it was **usable security** that respected device ownership while still protecting company resources.
+The focus was not maximum control; it was **usable security** that respected device ownership while still protecting company resources.
 
 ---
 
@@ -114,7 +114,7 @@ When an identity is deleted in Entra ID, the automation first retires the device
 
 **Compliance Requirements**
 - Windows 10 Pro or higher (Home not supported)
-- GSA as verified network
+- GSA as a verified network
 - MFA satisfied
 - Supported macOS version with required extensions
 
@@ -143,7 +143,7 @@ See [docs/production-hardening.md](docs/production-hardening.md) for full detail
 | Challenge | How it was handled |
 |---------|---------------------|
 | Users worried about “device managed by organisation” message | Heavy investment in education and clear communication of what was (and was not) being controlled |
-| GSA appearing disabled after configuration | Profile had to be explicitly assigned — easy to miss |
+| GSA appearing disabled after configuration | Profile had to be explicitly assigned, easy to miss |
 | Teams multi-tenant access broken | Universal tenant access enabled; risk accepted with compensating controls |
 | Windows vs macOS complexity | Windows was significantly smoother due to platform familiarity |
 | Internet dependency of GSA | Accepted as a limitation; documented for operational awareness |
